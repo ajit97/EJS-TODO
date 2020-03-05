@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('header.ejs') -%>
+<body>
+    <div class="box" id="heading">
+      <h1 > <%= kindOfDay%></h1>
+    </div>
+    <div class="box">
+      <%for(i of dos){%>
+      <div class="item">
+        <input type="checkbox">
+          <p><%= i %></p>   
+      </div>
+      <%}%>
+      <form action="/" method="post" onsubmit="return func()" autocomplete="off">
+        <input type="text" name = "do" id="do" placeholder="New Item" >
+        <button type="submit" name = "list" value="todo">+</button>
+      </form>
+      
+    </div>
+    
+    <script>
+      function func(){
+        let name = document.getElementById("do").value;
+        console.log(name);
+        if(name === ""){
+          return false;
+        }
+        else{
+          return true;
+        }
+      }
+    </script>
+  
+    
+    
+</body>
+</html>
